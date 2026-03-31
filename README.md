@@ -1,69 +1,69 @@
-# 🚀 Spaceship Titanic - Survival Prediction with XGBoost
+# 🚀 Spaceship Titanic - Prediksi Survival dengan XGBoost
 
-A machine learning project that predicts whether passengers will be transported to an alternate dimension in this sci-fi twist on the classic Titanic dataset.
+Proyek machine learning yang memprediksi apakah penumpang akan "ditransport" ke dimensi lain dalam versi futuristik dari dataset Titanic klasik.
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Kaggle Competition](https://img.shields.io/badge/kaggle-spaceship--titanic-blue)](https://www.kaggle.com/competitions/spaceship-titanic)
 
-## 📋 Table of Contents
+## 📋 Daftar Isi
 
-- [About the Project](#about-the-project)
+- [Tentang Proyek](#tentang-proyek)
 - [Dataset](#dataset)
-- [Methodology](#methodology)
-- [Results](#results)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Metodologi](#metodologi)
+- [Hasil](#hasil)
+- [Instalasi](#instalasi)
+- [Cara Pakai](#cara-pakai)
+- [Struktur Proyek](#struktur-proyek)
+- [Kontribusi](#kontribusi)
+- [Lisensi](#lisensi)
 
-## 📌 About the Project
+## 📌 Tentang Proyek
 
-This project participates in the Kaggle [Spaceship Titanic](https://www.kaggle.com/competitions/spaceship-titanic) competition. Using machine learning and feature engineering, we build a predictive model to determine which passengers were transported to an alternate dimension.
+Proyek ini mengikuti kompetisi Kaggle [Spaceship Titanic](https://www.kaggle.com/competitions/spaceship-titanic). Menggunakan machine learning dan feature engineering, kami membangun model prediktif untuk menentukan penumpang mana yang ditransport ke dimensi lain.
 
-### Problem Statement
-Given passenger data from a Spaceship Titanic disaster, predict whether each passenger was transported (binary classification problem).
+### Pernyataan Masalah
+Diberikan data penumpang dari bencana Spaceship Titanic, prediksi apakah setiap penumpang ditransport (masalah klasifikasi biner).
 
-### Key Features Analyzed
-- **Personal Information**: Age, VIP status, planet of origin
-- **Cabin Location**: Deck, cabin number, side of the ship
-- **Spending Patterns**: Room service, food court, shopping mall, spa, VR deck expenses
-- **Travel Status**: Traveling solo or with group
+### Fitur Utama yang Dianalisis
+- **Informasi Pribadi**: Usia, status VIP, planet asal
+- **Lokasi Kabin**: Deck, nomor kabin, sisi kapal
+- **Pola Pengeluaran**: Biaya room service, food court, mall, spa, VR deck
+- **Status Perjalanan**: Bepergian sendiri atau dengan grup
 
 ## 📊 Dataset
 
-| Metric | Value |
+| Metrik | Nilai |
 |--------|-------|
-| Training Samples | ~8,700 passengers |
-| Test Samples | ~4,300 passengers |
-| Input Features | 13 processed features |
-| Target Variable | Transported (Binary: Yes/No) |
+| Sampel Pelatihan | ~8.700 penumpang |
+| Sampel Test | ~4.300 penumpang |
+| Fitur Input | 13 fitur yang sudah diproses |
+| Variabel Target | Ditransport (Biner: Ya/Tidak) |
 
-**Data Files:**
-- `train.csv` - Training data with labels
-- `test.csv` - Test data for predictions
-- `sample_submission.csv` - Sample submission format
+**File Data:**
+- `train.csv` - Data pelatihan dengan label
+- `test.csv` - Data test untuk prediksi
+- `sample_submission.csv` - Format submission contoh
 
-## 🔧 Methodology
+## 🔧 Metodologi
 
 ### 1. Feature Engineering
-- **Cabin Decomposition**: Split cabin strings (e.g., "B/0/P") into separate features:
-  - Deck (letter)
-  - Cabin Number (numeric)
-  - Side (port/starboard)
-- **Total Spending**: Aggregate all expense columns for spending power analysis
-- **Solo Travel Flag**: Binary indicator for passengers traveling alone
-- **Group Size**: Extract from cabin patterns
+- **Dekomposisi Kabin**: Pisahkan string kabin (contoh: "B/0/P") menjadi fitur terpisah:
+  - Deck (huruf)
+  - Nomor Kabin (numerik)
+  - Sisi (port/starboard)
+- **Total Pengeluaran**: Gabungkan semua kolom pengeluaran untuk analisis daya belanja
+- **Flag Perjalanan Solo**: Indikator biner untuk penumpang yang bepergian sendiri
+- **Ukuran Grup**: Ekstrak dari pola kabin
 
-### 2. Data Processing
-- **Missing Values**: Imputed with median (numeric) or mode (categorical)
-- **Categorical Encoding**: Label encoding for categorical variables
-- **Data Split**: 80% training / 20% validation (stratified split)
-- **Scaling**: Standard scaling for numeric features
+### 2. Pemrosesan Data
+- **Nilai yang Hilang**: Diisi dengan median (numerik) atau modus (kategorikal)
+- **Encoding Kategorikal**: Label encoding untuk variabel kategorikal
+- **Pembagian Data**: 80% pelatihan / 20% validasi (stratified split)
+- **Scaling**: Standard scaling untuk fitur numerik
 
-### 3. Model Architecture
-**XGBoost Classifier** with optimized hyperparameters:
+### 3. Arsitektur Model
+**XGBoost Classifier** dengan hyperparameter yang dioptimalkan:
 ```python
 XGBClassifier(
     n_estimators=500,
@@ -74,35 +74,35 @@ XGBClassifier(
 )
 ```
 
-### 4. Evaluation Metrics
-- Accuracy
+### 4. Metrik Evaluasi
+- Akurasi
 - Precision, Recall, F1-Score
 - ROC-AUC Score
-- Feature Importance Analysis
+- Analisis Pentingnya Fitur
 
-## 📈 Results
+## 📈 Hasil
 
-The model achieves competitive performance through:
-- Comprehensive feature engineering
-- Proper handling of missing values
-- XGBoost's gradient boosting capabilities
-- Strategic hyperparameter tuning
+Model mencapai performa kompetitif melalui:
+- Feature engineering yang komprehensif
+- Penanganan nilai yang hilang dengan tepat
+- Kemampuan gradient boosting XGBoost
+- Tuning hyperparameter strategis
 
-## 🚀 Installation
+## 🚀 Instalasi
 
-### Prerequisites
-- Python 3.8 or higher
-- pip or conda
+### Prasyarat
+- Python 3.8 atau lebih tinggi
+- pip atau conda
 
-### Setup Steps
+### Langkah Setup
 
-1. **Clone the repository**
+1. **Clone repository**
 ```bash
-git clone https://github.com/yourusername/spaceship-titanic-xgboost.git
+git clone https://github.com/Scorlines/spaceship-titanic-xgboost.git
 cd spaceship-titanic-xgboost
 ```
 
-2. **Create a virtual environment** (recommended)
+2. **Buat virtual environment** (direkomendasikan)
 ```bash
 # Windows
 python -m venv venv
@@ -118,92 +118,85 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 🎯 Usage
+## 🎯 Cara Pakai
 
-### Quick Start
+### Mulai Cepat
 
-Run the notebook to train the model and generate predictions:
+Jalankan notebook untuk melatih model dan menghasilkan prediksi:
 
 ```bash
 jupyter notebook spaceship-titanic-xgboost.ipynb
 ```
 
-### Notebook Workflow
+### Alur Notebook
 
-1. **Data Loading** - Read training and test CSV files
-2. **Exploratory Data Analysis** - Understand data distributions and correlations
-3. **Feature Engineering** - Create and enhance features
-4. **Data Preprocessing** - Handle missing values and encoding
-5. **Model Training** - Train XGBoost classifier with early stopping
-6. **Model Evaluation** - Assess performance on validation set
-7. **Predictions** - Generate submission file with test predictions
-8. **Visualization** - Feature importance plots and performance metrics
+1. **Load Data** - Baca file CSV pelatihan dan test
+2. **Exploratory Data Analysis** - Pahami distribusi dan korelasi data
+3. **Feature Engineering** - Buat dan tingkatkan fitur
+4. **Pemrosesan Data** - Tangani nilai yang hilang dan encoding
+5. **Pelatihan Model** - Latih XGBoost dengan early stopping
+6. **Evaluasi Model** - Nilai performa pada set validasi
+7. **Prediksi** - Hasilkan file submission dengan prediksi test
+8. **Visualisasi** - Plot pentingnya fitur dan metrik performa
 
-### Command Line Usage
-
-```python
-# To run just the training:
-python train.py
-```
-
-## 📁 Project Structure
+## 📁 Struktur Proyek
 
 ```
 spaceship-titanic-xgboost/
-├── README.md                              # Project documentation
-├── spaceship-titanic-xgboost.ipynb        # Main notebook with XGBoost model
+├── README.md                              # Dokumentasi proyek
+├── spaceship-titanic-xgboost.ipynb        # Notebook utama dengan model XGBoost
 ├── requirements.txt                       # Python dependencies
-├── .gitignore                            # Git ignore file
-├── LICENSE                               # MIT License
+├── .gitignore                            # File git ignore
+├── LICENSE                               # Lisensi MIT
 │
-└── spaceship-titanic/                    # Dataset directory
-    ├── train.csv                         # Training data (8,693 rows)
-    ├── test.csv                          # Test data (4,277 rows)
-    └── sample_submission.csv             # Expected submission format
+└── spaceship-titanic/                    # Folder dataset
+    ├── train.csv                         # Data pelatihan (8.693 baris)
+    ├── test.csv                          # Data test (4.277 baris)
+    └── sample_submission.csv             # Format submission contoh
 ```
 
 ## 📦 Dependencies
 
-Key libraries used:
-- **pandas** - Data manipulation and analysis
-- **numpy** - Numerical computations
-- **scikit-learn** - ML preprocessing and metrics
+Library utama yang digunakan:
+- **pandas** - Manipulasi dan analisis data
+- **numpy** - Komputasi numerik
+- **scikit-learn** - Preprocessing ML dan metrik
 - **xgboost** - Gradient boosting classifier
-- **matplotlib** - Data visualization
-- **seaborn** - Statistical data visualization
+- **matplotlib** - Visualisasi data
+- **seaborn** - Visualisasi data statistik
 
-For complete list, see [requirements.txt](requirements.txt)
+Untuk daftar lengkap, lihat [requirements.txt](requirements.txt)
 
-## 🔍 Key Insights
+## 🔍 Insight Kunci
 
-- Spending patterns are strong predictors of transportation status
-- Cabin location/deck is highly relevant
-- Solo travelers have different transportation rates
-- VIP status correlates with survival outcomes
+- Pola pengeluaran adalah prediktor kuat dari status transportasi
+- Lokasi kabin/deck sangat relevan
+- Penumpang solo memiliki tingkat transportasi berbeda
+- Status VIP berkorelasi dengan hasil survival
 
-## 🤝 Contributing
+## 🤝 Kontribusi
 
-Contributions are welcome! To contribute:
+Kontribusi sangat diterima! Untuk berkontribusi:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork repository
+2. Buat branch fitur Anda (`git checkout -b feature/FiturBagus`)
+3. Commit perubahan Anda (`git commit -m 'Tambah FiturBagus'`)
+4. Push ke branch (`git push origin feature/FiturBagus`)
+5. Buka Pull Request
 
-## 📝 License
+## 📝 Lisensi
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail.
 
-## 🙌 Acknowledgments
+## 🙌 Ucapan Terima Kasih
 
-- [Kaggle Spaceship Titanic Competition](https://www.kaggle.com/competitions/spaceship-titanic)
-- XGBoost documentation and community
-- Python data science community
+- [Kompetisi Kaggle Spaceship Titanic](https://www.kaggle.com/competitions/spaceship-titanic)
+- Dokumentasi dan komunitas XGBoost
+- Komunitas data science Python
 
 ---
 
-**Note:** This project is for educational and competition purposes. Predictions are based on machine learning models and should be used accordingly.
+**Catatan:** Proyek ini untuk tujuan pendidikan dan kompetisi. Prediksi didasarkan pada model machine learning dan harus digunakan sesuai dengan itu.
 6. Evaluasi di validation set
 7. Generate `submission.csv` untuk Kaggle
 
